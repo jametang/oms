@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 public class MyController {
     @Autowired
@@ -46,5 +48,12 @@ public class MyController {
             model.addAttribute("data","注册成功，请登录！");
             return "login";
         }
+    }
+    @RequestMapping("/Test")
+    public String test(Model model){
+        List<UserLogin> list = userLoginServicesImpl.queryAll();
+        model.addAttribute("userList", list);
+        list.forEach(System.out::println);
+        return "test";
     }
 }

@@ -1,0 +1,47 @@
+<!-- test-page.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #3498db; /* 蓝色 */
+        }
+
+        p {
+            color: #333;
+        }
+
+        .test-icon {
+            color: #3498db;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<!-- 测试图标 -->
+<div class="test-icon">
+    <i class="fas fa-flask"></i>
+</div>
+<h1>测试页面</h1>
+<p>这是一个测试页面，用于测试和演示图标的显示。</p>
+
+<!-- 显示从后端获取的用户信息 -->
+<ul>
+    <li th:each="user : ${userList}">
+        <p th:text="${'username=' + user.username + ', ' + 'email=' + user.email + ', ' + 'password=' + user.password + ', ' + 'create_time= ' + user.create_time}"></p>
+    </li>
+</ul>
+</body>
+</html>
