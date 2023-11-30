@@ -38,8 +38,13 @@ public class MyController {
     public String toRegisterSuccess(Model model,UserLogin userLogin){
         //将账号密码加入到数据库中
         int add = userLoginServicesImpl.add(userLogin);
-        System.out.println("数据插入成功！");
-        model.addAttribute("data","注册成功，请登录！");
-        return "login";
+        if (add < 1) {
+            System.out.println("数据插入失败！");
+            return  "failed";
+        } else {
+            System.out.println("数据插入成功！");
+            model.addAttribute("data","注册成功，请登录！");
+            return "login";
+        }
     }
 }
