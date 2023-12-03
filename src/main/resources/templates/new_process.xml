@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Process</title>
+    </head>
+    <body>
+        <form action="/start-process" method="post">
+            <!-- 表单内容，例如输入流程关键字和变量 -->
+            <input type="submit" value="Start Process"/>
+        </form>
+    </body>
+</html>
